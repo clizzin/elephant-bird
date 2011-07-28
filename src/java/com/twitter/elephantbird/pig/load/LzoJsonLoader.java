@@ -70,7 +70,7 @@ public class LzoJsonLoader extends LzoBaseLoadFunc {
 
       for (Object key: value_.keySet()) {
         Object value = value_.get(key);
-        values.put(key.toString(), value != null ? value.toString() : null);
+        values.put(key.toString(), (value == null || value.toString().equals("")) ? null : value.toString());
       }
       return tupleFactory_.newTuple(values);
     }catch (NumberFormatException e) {
